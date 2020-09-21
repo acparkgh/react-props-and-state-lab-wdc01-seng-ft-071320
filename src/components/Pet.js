@@ -1,10 +1,27 @@
 import React from 'react'
 
 class Pet extends React.Component {
+ 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isAdopted: props.eachPet.isAdopted
+    }
+  }
+
+  adoptPet = () => {
+    this.setState({
+      
+      isAdopted: true
+    })
+  }
+
   render() {
     let pet = this.props.eachPet
     // let petInfo = this.props.eachPet
     // let { pet } = this.props    if the name of the prop was "pet"
+
     return (
       <div className="card">
         <div className="content">
@@ -23,10 +40,10 @@ class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
-          { pet.isAdopted ? 
+          { this.state.isAdopted ? 
             <button className="ui disabled button">Already adopted</button>
               :            
-            <button className="ui primary button" onClick = {() => { return this.props.adoptPetFunc(this.props.eachPet) }}>Adopt pet</button>
+            <button className="ui primary button" onClick = {() => { return this.adoptPet(this.props.eachPet) }}>Adopt pet</button>
           }
         </div>
       </div>
