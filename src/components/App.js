@@ -45,29 +45,6 @@ class App extends React.Component {
     })
   }
 
-  adoptPet = (eachPet) => {
-    // debugger
-
-    // let newPetsArray = this.state.pets.map(pet => {
-    //   if(eachPet === pet) {
-    //     return {...pet, isAdopted: true}
-    //   pet.isAdopted = true
-    //   }
-    //   return pet
-    // })
-
-    // console.log(newPetsArray)
-    this.setState({
-      // pets: newPetsArray
-      pets: this.state.pets.map(pet => {
-              if(eachPet === pet) {
-                pet.isAdopted = true
-                // return {...pet, isAdopted: true}
-              }
-              return pet
-       })
-    })
-  }
 
 
   render() {
@@ -82,7 +59,7 @@ class App extends React.Component {
               <Filters changeFilters = {this.changeFilter} fetchPet = {this.fetchPets}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser petList = {this.state.pets} adoptPetFunc = {this.adoptPet} />
+              <PetBrowser petList = {this.state.pets} />
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ class Pet extends React.Component {
           <span className="date">Type: {pet.type}</span>
           </div>
           <div className="description">
-            <p>Age: {pet.age}</p>
+            <p>Age: {pet.age}</p>A
             <p>Weight: {pet.weight}</p>
           </div>
         </div>
